@@ -1,0 +1,29 @@
+<input type="text" value="" id="archivo">
+
+<input type="button" value="Abrir archivo de Excel" onclick="openB()">
+
+<script language="javascript">
+function runApp()
+{
+var excApp = new ActiveXObject("Excel.Application");
+excApp.visible = false;
+var excBook = excApp.Workbooks.open("d:\\prueba.xlsx");
+alert(excBook);
+
+alert(excBook.close);
+excBook.close();
+ 
+}
+
+function openB() {
+var archivo = document.getElementById("archivo").value;
+
+var excel=new ActiveXObject("Excel.Application");
+var book=excel.Workbooks.Open(archivo);
+var sheet=book.Sheets.Item(1);
+var value=sheet.Range("A1");
+alert(value);
+}
+ 
+
+</script>
